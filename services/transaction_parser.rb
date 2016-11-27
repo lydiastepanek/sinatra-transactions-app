@@ -1,9 +1,6 @@
-require 'json'
-# require 'models/transaction'
-
 class TransactionParser
-  def initialize(data_file)
-    @transactions = JSON.parse(data_file)
+  def initialize(transactions)
+    @transactions = transactions
   end
 
   def run

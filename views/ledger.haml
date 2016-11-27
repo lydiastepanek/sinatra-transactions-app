@@ -27,12 +27,12 @@
           - @ledger_data.each do |entry|
             %tr
               %td
-                = entry['date']
+                = entry.date
               %td
-                = entry['type']
+                = entry.type
               %td
 
               %td
-                = entry['amount']
+                = entry.amount
               %td
-                = entry['balance']
+                = entry.balance
