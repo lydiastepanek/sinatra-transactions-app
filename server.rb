@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'haml'
 require 'json'
-require 'services/test.rb'
 
 get '/' do
   content_type 'text/plain'
