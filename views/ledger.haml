@@ -27,7 +27,7 @@
           - @ledger_data.each do |entry|
             %tr
               %td
-                = entry.date
+                = entry.date.to_date.to_s
               %td
                 = entry.type
               %td

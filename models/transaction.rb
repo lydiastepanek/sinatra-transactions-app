@@ -3,9 +3,9 @@ class Transaction
 
   def initialize(activity_id, date, type, amount, balance)
     @activity_id = activity_id
-    @date = Date.parse(date)
+    @date = DateTime.parse(date)
     @type = type
     @amount = amount
-    @balance = 7
+    @balance = balance
   end
 end

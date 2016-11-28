@@ -15,7 +15,7 @@ class TransactionParser
       activity_ids.add(transaction.activity_id)
     end
     unique_transactions.sort_by do |transaction|
-      [transaction.date]
+      [transaction.date, -transaction.amount]
     end
   end
 
