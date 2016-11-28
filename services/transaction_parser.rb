@@ -6,17 +6,9 @@ class TransactionParser
   end
 
   def run
-    activity_ids = Set.new
-    unique_transactions = []
-    @transactions.each do |transaction|
-      if !activity_ids.include?(transaction.activity_id)
-        unique_transactions << transaction
-      end
-      activity_ids.add(transaction.activity_id)
-    end
-    unique_transactions.sort_by do |transaction|
-      [transaction.date, -transaction.amount]
-    end
+    @transactions
+      .uniq { |t| t.activity_id }
+      .sort_by { |t| [t.date, -t.amount] }
   end
 
   def add_descriptions
