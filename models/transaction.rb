@@ -1,10 +1,11 @@
 class Transaction
-  attr_reader :date, :type, :amount, :balance
+  attr_reader :activity_id, :date, :type, :amount, :balance
 
-  def initialize(date, type, amount, balance)
-    @date = Date.parse(date).to_s
+  def initialize(activity_id, date, type, amount, balance)
+    @activity_id = activity_id
+    @date = Date.parse(date)
     @type = type
     @amount = amount
-    @balance = balance
+    @balance = 7
   end
 end
