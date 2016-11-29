@@ -9,7 +9,7 @@
 
   %body
     %h1
-      Your investing account ($0 available)
+      = "Your investing account (" + ("%.2f" % @end_balance).to_s + " available)"
       .small
         08/19/2014 - 10/15/2014
 
@@ -29,10 +29,10 @@
               %td
                 = entry.date.to_date.to_s
               %td
-                = entry.type
+                = entry.type.capitalize
               %td
-
+                = entry.description
               %td
-                = entry.amount
+                = '$' + ("%.2f" % entry.amount).to_s
               %td
-                = entry.balance
+                = '$' + ("%.2f" % entry.balance).to_s
