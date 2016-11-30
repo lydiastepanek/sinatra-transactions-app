@@ -16,6 +16,7 @@ get '/:ledger_name' do
   transaction_service = TransactionService.new(transactions)
   @end_balance = transaction_service.end_balance
   @ledger_data = transaction_service.run
+  @percentage = 0.to_s
 
   raise 'No data' unless @ledger_data
 

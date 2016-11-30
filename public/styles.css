@@ -18,9 +18,9 @@ h1 > .small {
 
 h3 {
   background-color: white;
-  padding: 15px 0 15px 3%;
+  padding: 50px 0 5px 3%;
   color: #6d717d;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid #e7e9eB;
 }
 
 .section {
@@ -41,8 +41,33 @@ h3 {
 .transaction-content {
   width: 100%;
   color: #444;
-  height: 50px;
+  height: 60px;
   padding: 20px 0 20px 6%;
+}
+
+.transaction-subcontent > span,
+.transaction-subcontent > select,
+.transaction-subcontent > input,
+.transaction-subcontent > button {
+  margin-right: 10px;
+}
+
+.progress-wrap {
+  width: 80%;
+  height: 10px;
+  background: #6d717d;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 50px;
+  background: #ddd;
+  left: 0;
+  position: absolute;
+  top: 0;
 }
 
 th {
