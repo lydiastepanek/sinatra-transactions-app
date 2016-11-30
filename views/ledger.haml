@@ -8,7 +8,8 @@
     %link(rel="stylesheet" href="styles.css")
 
   %body
-    %h3 Your investment account
+    %h1
+      .medium Your investment account
     %h1
       $#{("%.2f" % @end_balance).to_s}
       .small BALANCE
@@ -21,7 +22,7 @@
         .transaction-subcontent
           %span Type of transaction:
           %select
-            %option Withdraw
+            %option Withdrawl
             %option Deposit
             %option Transfer
 
@@ -34,11 +35,11 @@
           %span Amount
           %input
 
-          %button Submit
+          %button.submit Submit
 
         .transaction-subcontent
           .progress-wrap
-            .progress-bar{:style => "left: #{@percentage}%;"}
+            .progress-bar
 
     .section
       %h1
@@ -70,19 +71,20 @@
                   = '$' + ("%.2f" % entry.balance).to_s
 
 :javascript
-  document.addEventListener("DOMContentLoaded", function(event) { 
-    moveProgressBar();
+  var intervalID = 0;
+  var progressBarWidth = 0;
+  var progressBar = document.querySelector('.progress-bar');
+  document.querySelector('.submit').addEventListener("click", function(e) {
+    e.preventDefault();
+    intervalID = setInterval(moveProgressBar, 500);
   });
   function moveProgressBar() {
-    console.log("moveProgressBar");
-    var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
-    var getProgressWrapWidth = $('.progress-wrap').width();
-    var progressTotal = getPercent * getProgressWrapWidth;
-    var animationLength = 2500;
-
-    // on page load, animate percentage bar to data percentage length
-    // .stop() used to prevent animation queueing
-    $('.progress-bar').stop().animate({
-      left: progressTotal
-    }, animationLength);
+    var progresssBarPercent = String(progressBarWidth) + "%"
+    progressBar.style.left = progresssBarPercent;
+    if (progressBarWidth === 100) {
+    console.log('done');
+      progressBar.style.background = "#00b0ca";
+      window.clearTimeout(intervalID);
+    }
+    progressBarWidth += 10;
   };
