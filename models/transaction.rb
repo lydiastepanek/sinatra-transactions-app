@@ -15,7 +15,7 @@ class Transaction
 
   def description
     {
-      "INVESTMENT" => "Deposit from Chase Bank **0978 ffor your Investment in #{@destination_description}",
+      "INVESTMENT" => "Deposit from Chase Bank **0978 for your Investment in #{@destination_description}",
       "DEPOSIT" => "Deposit from #{@source_type} account #{@source_description}",
       "TRANSFER" => "Transfer to #{@destination_description}",
       "WITHDRAWAL" => "Withdrawal into #{@destination_type} account #{@destination_description}",
