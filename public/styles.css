@@ -9,8 +9,10 @@ h1 {
   color: #444;
 }
 
-h1 > .medium {
-  font-size: 0.5em;
+.medium {
+  font-weight: 400;
+  padding: 10px 0 0 6%;
+  font-size: 1em;
   color: #6d717d;
 }
 
@@ -36,11 +38,20 @@ h1 > .small {
   color: #444;
 }
 
+.transaction-header:hover {
+  cursor: pointer;
+  color: #00b0ca;
+}
+
 .transaction-content {
   width: 100%;
   color: #444;
   height: 60px;
   padding: 20px 0 20px 6%;
+}
+
+.hidden {
+  display: none;
 }
 
 .transaction-subcontent > span,
@@ -53,7 +64,7 @@ h1 > .small {
 .progress-wrap {
   width: 80%;
   height: 10px;
-  background: #6d717d;
+  background: #00b0ca;
   margin: 20px 0;
   overflow: hidden;
   position: relative;
@@ -66,6 +77,10 @@ h1 > .small {
   left: 0;
   position: absolute;
   top: 0;
+}
+
+.progress-wrap.processing {
+  background: #6d717d;
 }
 
 th {

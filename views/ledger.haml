@@ -8,17 +8,17 @@
     %link(rel="stylesheet" href="styles.css")
 
   %body
-    %h1
+    %h3
       .medium Your investment account
     %h1
       $#{("%.2f" % @end_balance).to_s}
       .small BALANCE
 
     .section
-      %h1
+      %h1.transaction-header
         Make a transaction
 
-      .transaction-content
+      .transaction-content.hidden
         .transaction-subcontent
           %span Type of transaction:
           %select
@@ -38,7 +38,7 @@
           %button.submit Submit
 
         .transaction-subcontent
-          .progress-wrap
+          .progress-wrap.processing
             .progress-bar
 
     .section
@@ -71,6 +71,12 @@
                   = '$' + ("%.2f" % entry.balance).to_s
 
 :javascript
+  var transactionContent = document.querySelector('.transaction-content');
+  document.querySelector('.transaction-header').addEventListener("click", function(e) {
+    e.preventDefault();
+    transactionContent.classList.remove('hidden');
+  });
+
   var intervalID = 0;
   var progressBarWidth = 0;
   var progressBar = document.querySelector('.progress-bar');
@@ -82,9 +88,8 @@
     var progresssBarPercent = String(progressBarWidth) + "%"
     progressBar.style.left = progresssBarPercent;
     if (progressBarWidth === 100) {
-    console.log('done');
-      progressBar.style.background = "#00b0ca";
-      window.clearTimeout(intervalID);
+      progressBar.parentNode.classList.remove('processing');
+      window.clearInterval(intervalID);
     }
     progressBarWidth += 10;
   };
